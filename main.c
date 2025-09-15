@@ -16,9 +16,10 @@
 #include "esp_process_sdkconfig.h"
 
 
-#define OUTPUT_GPIO GPIO_NUM_7
-#define OUTPUT_GPIO2 GPIO_NUM_6
-#define OUTPUT_GPIO3 GPIO_NUM_5
+#define OUTPUT_GPIO GPIO_NUM_4
+#define OUTPUT_GPIO2 GPIO_NUM_7
+#define OUTPUT_GPIO3 GPIO_NUM_17
+#define OUTPUT_GPIO4 GPIO_NUM_3
 
 int detect_flag = 0;
 static esp_afe_sr_iface_t *afe_handle = NULL;
@@ -120,11 +121,11 @@ void detect_Task(void *arg)
                     printf("GPIO 7 set LOW\n");
                     break;
                 case 2:
-                    gpio_set_level(OUTPUT_GPIO2, 0); 
+                    gpio_set_level(OUTPUT_GPIO2, 1); 
                     printf("GPIO 6 set LOW\n");
                     break;
                 case 3:
-                    gpio_set_level(OUTPUT_GPIO2, 1); 
+                    gpio_set_level(OUTPUT_GPIO2, 0); 
                     printf("GPIO 6 set HIGH\n");
                     break;
                 case 4:
@@ -133,6 +134,14 @@ void detect_Task(void *arg)
                     break;
                 case 5:
                     gpio_set_level(OUTPUT_GPIO3, 0); 
+                    printf("GPIO 5 set LOW\n");
+                    break;
+                 case 6:
+                    gpio_set_level(OUTPUT_GPIO4, 1); 
+                    printf("GPIO 5 set LOW\n");
+                    break;
+                 case 7:
+                    gpio_set_level(OUTPUT_GPIO4, 0); 
                     printf("GPIO 5 set LOW\n");
                     break;
                 }
@@ -171,7 +180,7 @@ void app_main()
 
     // Setup GPIO 7 as output
     gpio_config_t io_conf = {
-    .pin_bit_mask = (1ULL << OUTPUT_GPIO) | (1ULL << OUTPUT_GPIO2) | (1ULL << OUTPUT_GPIO3),
+    .pin_bit_mask = (1ULL << OUTPUT_GPIO) | (1ULL << OUTPUT_GPIO2) | (1ULL << OUTPUT_GPIO3) | (1ULL << OUTPUT_GPIO4),
     .mode = GPIO_MODE_OUTPUT,
     .pull_up_en = GPIO_PULLUP_DISABLE,
     .pull_down_en = GPIO_PULLDOWN_DISABLE,
