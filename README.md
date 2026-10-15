@@ -3,13 +3,15 @@
 
 esp32-s3-offline-voice-recognition enables the ESP32-S3 microcontroller to recognize voice commands completely offline—no cloud, no latency, and your data stays private.
 
-Powered by Espressif’s ESP‑SR library (featuring the MultiNet model), it supports up to 300 Chinese or English voice commands that can be customized on the fly 
-Waveshare.
+Powered by Espressif’s ESP‑SR library (featuring the MultiNet model), it supports up to 300 Chinese or English voice commands that can be customized on the fly.
 
-Includes an Audio Front-End (AFE) that optimizes input using noise suppression, voice activity detection, and even echo cancellatiion.
+Includes an Audio Front-End (AFE) that optimizes input using noise suppression, voice activity detection, and even echo cancellation.
 
-Offers both single‑recognition mode (detects a command and stops) and continuous‑recognition mode, running until the device times out 
-Home Assistant Community.
+Offers both single‑recognition mode (detects a command and stops) and continuous‑recognition mode, running until the device times out.
+
+## Wiring
+
+![ESP32-S3 offline voice recognition wiring](ESP-32-OFFLINE-VOICE-RECOGNITION.png)
 
 ## How It Works
 
@@ -21,7 +23,7 @@ Command Recognition: The model matches audio input to a spoken command (Chinese 
 
 Action Trigger: Recognized commands can trigger hardware or software actions—like toggling LEDs, relaying signals, or interfacing with other peripherals.
 
-##Why Use This Project?
+## Why Use This Project?
 
 Privacy‑First: Functions completely offline, device does not send your voice data to external servers.
 
